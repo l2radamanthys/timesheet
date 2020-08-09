@@ -1,0 +1,7 @@
+*.pyc
+*.pyo
+*.sqlite
+*.sqlite3
+
+/notebook
+/__pycache__
