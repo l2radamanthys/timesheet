@@ -43,9 +43,8 @@ reset:
 collectstatic:
 	pipenv run python manage.py collectstatic
 
-docker_build:
-	@docker build -t l2radamanthys/minera-tca-backend .
+heroku_deploy:
+	@git push heroku master
 
-docker_run:
-	@docker run -d l2radamanthys/minera-tca-backend --name minera_tca_backend
-
+heroku_logs:
+	@heroku logs --tail
