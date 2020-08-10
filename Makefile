@@ -16,8 +16,8 @@ compandos:
 	@echo "	${G}build_requirements${N}"
 	@echo "	${G}collectstatic${N}"
 	@echo ""
-	@echo "	${G}docker_build${N}"
-	@echo "	${G}docker_run${N}"
+	@echo "	${G}heroku_deploy${N}"
+	@echo "	${G}heroku_logs${N}"
 	@echo ""
 
 iniciar:
