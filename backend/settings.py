@@ -23,6 +23,7 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
     '.herokuapp.com',
+    'cs-timesheet.herokuapp.com',
 ]
 
 CORS_ORIGIN_WHITELIST = (
@@ -30,6 +31,7 @@ CORS_ORIGIN_WHITELIST = (
     'http://127.0.0.1:4200',
     'http://localhost',
     'http://localhost:4200',
+    'https://cs-timesheet.herokuapp.com',
 )
 
 INSTALLED_APPS = [
