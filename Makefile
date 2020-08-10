@@ -36,9 +36,13 @@ build_requirements:
 	@pipenv lock -r > requirements.txt
 	cat requirements.txt
 
+reset:
+	dropdb --if-exists timesheet -e; createdb timesheet
+	pipenv run python manage.py migrate --noinput
+
 collectstatic:
 	pipenv run python manage.py collectstatic
-:
+
 docker_build:
 	@docker build -t l2radamanthys/minera-tca-backend .
 
