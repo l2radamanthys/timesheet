@@ -2,14 +2,14 @@ from django.contrib.auth.models import User
 from rest_framework.serializers import ModelSerializer, CharField, SerializerMethodField
 from rest_framework_json_api.relations import ResourceRelatedField
 
-from %app%.models.%nombre_archivo% import %modelo%
+from timesheet.models.proyectos import Proyecto
 
 
-class %modelo%Serializer(ModelSerializer):
+class ProyectoSerializer(ModelSerializer):
     # model = ResourceRelatedField(many=False, read_only=True)
 
     class Meta:
-        model = %modelo%
+        model = Proyecto
         fields = (
             'nombre',
         )
