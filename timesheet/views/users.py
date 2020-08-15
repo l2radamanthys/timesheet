@@ -11,10 +11,11 @@ from timesheet.serializers.users import User, UserSerializer
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
-    resource_name = 'users'
-    authentication_classes = (TokenAuthentication,)
-    permission_classes = (permissions.IsAuthenticated, )
-    http_method_names = ['get']
+    # resource_name = 'users'
+    # authentication_classes = (TokenAuthentication,)
+    # permission_classes = (permissions.IsAuthenticated, )
+    permission_classes = (permissions.AllowAny,)
+    # http_method_names = ['get']
     serializer_class = UserSerializer
 
     @action(detail=False, methods=['get'], url_path='mi-perfil')

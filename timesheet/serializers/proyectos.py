@@ -6,5 +6,6 @@ class ProyectoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Proyecto
         fields = (
+            'id',
             'nombre',
         )
