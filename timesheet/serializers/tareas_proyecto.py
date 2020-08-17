@@ -6,5 +6,9 @@ class TareaProyectoSerializer(serializers.ModelSerializer):
     class Meta:
         model = TareaProyecto
         fields = (
-            'nombre',
+            'user',
+            'proyecto',
+            'tarea',
+            'fecha',
+            'horas',
         )
