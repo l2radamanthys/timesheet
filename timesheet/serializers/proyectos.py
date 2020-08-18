@@ -1,19 +1,11 @@
-from django.contrib.auth.models import User
-from rest_framework.serializers import ModelSerializer, CharField, SerializerMethodField
-from rest_framework_json_api.relations import ResourceRelatedField
-
+from rest_framework import serializers
 from timesheet.models.proyectos import Proyecto
 
 
-class ProyectoSerializer(ModelSerializer):
-    # model = ResourceRelatedField(many=False, read_only=True)
-
+class ProyectoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Proyecto
         fields = (
+            'id',
             'nombre',
         )
-
-    # included_serializers = {
-    #     'user': UserSerializer,
-    # }

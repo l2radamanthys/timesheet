@@ -1,19 +1,13 @@
 from django.contrib.auth.models import User
-from rest_framework.serializers import ModelSerializer, CharField, SerializerMethodField
-from rest_framework_json_api.relations import ResourceRelatedField
-
+from rest_framework import serializers
 from timesheet.models.tareas import Tarea
 
 
-class TareaSerializer(ModelSerializer):
-    # model = ResourceRelatedField(many=False, read_only=True)
-
+class TareaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tarea
         fields = (
+            'id',
             'nombre',
         )
 
-    # included_serializers = {
-    #     'user': UserSerializer,
-    # }

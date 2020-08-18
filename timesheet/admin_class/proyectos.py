@@ -9,3 +9,4 @@ class ProyectoAdmin(admin.ModelAdmin):
         'cliente',
     )
     search_fields = ('nombre', 'cliente',)
+    autocomplete_fields = ('cliente',)

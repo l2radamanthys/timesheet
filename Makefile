@@ -16,8 +16,8 @@ compandos:
 	@echo "	${G}build_requirements${N}"
 	@echo "	${G}collectstatic${N}"
 	@echo ""
-	@echo "	${G}docker_build${N}"
-	@echo "	${G}docker_run${N}"
+	@echo "	${G}heroku_deploy${N}"
+	@echo "	${G}heroku_logs${N}"
 	@echo ""
 
 iniciar:
@@ -36,12 +36,15 @@ build_requirements:
 	@pipenv lock -r > requirements.txt
 	cat requirements.txt
 
+reset:
+	dropdb --if-exists timesheet -e; createdb timesheet
+	pipenv run python manage.py migrate --noinput
+
 collectstatic:
 	pipenv run python manage.py collectstatic
-:
-docker_build:
-	@docker build -t l2radamanthys/minera-tca-backend .
 
-docker_run:
-	@docker run -d l2radamanthys/minera-tca-backend --name minera_tca_backend
+heroku_deploy:
+	@git push heroku master
 
+heroku_logs:
+	@heroku logs --tail

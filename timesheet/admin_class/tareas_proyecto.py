@@ -16,4 +16,8 @@ class TareaProyectoAdmin(admin.ModelAdmin):
         'tarea',
         'user',
     )
-
+    search_fields = (
+        'user',
+        'proyecto',
+        'tarea',
+    )

@@ -1,11 +1,8 @@
-from django.contrib.auth.models import User
-from rest_framework.serializers import ModelSerializer, CharField, SerializerMethodField
-from rest_framework_json_api.relations import ResourceRelatedField
-
+from rest_framework import serializers
 from timesheet.models.clientes import Cliente
 
 
-class ClienteSerializer(ModelSerializer):
+class ClienteSerializer(serializers.ModelSerializer):
     # model = ResourceRelatedField(many=False, read_only=True)
 
     class Meta:
