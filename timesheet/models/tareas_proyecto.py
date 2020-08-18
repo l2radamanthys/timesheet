@@ -7,7 +7,7 @@ class TareaProyecto(models.Model):
     proyecto = models.ForeignKey("Proyecto", on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     fecha = models.DateField(default=None, null=True, blank=True)
-    horas = models.IntegerField(default=0, blank=True, null=True)
+    horas = models.FloatField(default=0, blank=True, null=True)
 
     fecha_de_creacion = models.DateTimeField(auto_now_add=True)
     fecha_de_modificacion = models.DateTimeField(auto_now=True)

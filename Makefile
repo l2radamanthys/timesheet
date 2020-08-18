@@ -1,4 +1,5 @@
 DB_DUMP_MAS_RECIENTE=`ls -Art ~/Dropbox/Trabajo/timesheet/backups/*.dump  | tail -n 1`
+DB_NOMBRE_DEL_DUMP= ~/Dropbox/Trabajo/timesheet/backups/timesheet_`date +'%Y%m%d_%Hhs%Mmin'`.dump
 
 N=[0m
 R=[00;31m
@@ -17,10 +18,12 @@ compandos:
 	@echo "	${G}migrar${N}"
 	@echo " ${G}reset${N}: resetea la base de datos"
 	@echo " ${G}cargar_ultimo_dump${N}"
+	@echo " ${G}realizar_backup${N}"
 	@echo "	${G}build_requirements: actualiza el archivo requirements.txt${N}"
 	@echo "	${G}collectstatic${N}"
 	@echo ""
 	@echo "	${G}heroku_deploy${N}"
+	@echo "	${G}heroku2_deploy${N}"
 	@echo "	${G}heroku_logs${N}"
 	@echo ""
 
@@ -48,6 +51,10 @@ cargar_ultimo_dump:
 	@echo "Se cargará el dump mas reciente: ${DB_DUMP_MAS_RECIENTE}"
 	dropdb --if-exists timesheet -e; createdb timesheet
 	pg_restore --no-acl --no-owner -d timesheet ${DB_DUMP_MAS_RECIENTE}
+
+realizar_backup:
+	@echo "Creando el archivo ${DB_NOMBRE_DEL_DUMP}"
+	@pg_dump -F c tca > ${DB_NOMBRE_DEL_DUMP}
 
 collectstatic:
 	pipenv run python manage.py collectstatic
