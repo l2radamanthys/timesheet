@@ -47,5 +47,8 @@ collectstatic:
 heroku_deploy:
 	@git push heroku master
 
+heroku2_deploy:
+	@git push heroku2 master
+
 heroku_logs:
 	@heroku logs --tail
