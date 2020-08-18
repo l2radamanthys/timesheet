@@ -1,0 +1,56 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+  <head>
+
+    <meta charset="utf-8">
+    <title>Timesheet</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/x-icon" href="{% static 'dist/favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'dist/styles.css' %}">
+
+    <style>
+      .centrar-loading-container {
+        position: relative;
+        height: 100vh;
+      }
+      .centrar-loading {
+        font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+        color: #666;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+      }
+    </style>
+  </head>
+  <body>
+    <app-root>
+      <div class="centrar-loading-container">
+        <div class="centrar-loading">
+          Cargando Timesheet...
+        </div>
+      </div>
+    </app-root>
+
+    <script src="{% static 'dist/runtime-es2015.js' %}" type="module"></script>
+    <script src="{% static 'dist/runtime-es5.js' %}" nomodule defer></script>
+    <script src="{% static 'dist/polyfills-es5.js' %}" nomodule defer></script>
+    <script src="{% static 'dist/polyfills-es2015.js' %}" type="module"></script>
+    <script src="{% static 'dist/main-es2015.js' %}" type="module"></script>
+    <script src="{% static 'dist/main-es5.js' %}" nomodule defer></script>
+    
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js" integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ" crossorigin="anonymous"></script>
+  </body>
+</html>
