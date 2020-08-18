@@ -1,3 +1,5 @@
+DB_DUMP_MAS_RECIENTE=`ls -Art ~/Dropbox/Trabajo/timesheet/backups/*.dump  | tail -n 1`
+
 N=[0m
 R=[00;31m
 G=[01;32m
@@ -14,6 +16,7 @@ compandos:
 	@echo "	${G}crear_migraciones${N}"
 	@echo "	${G}migrar${N}"
 	@echo " ${G}reset${N}: resetea la base de datos"
+	@echo " ${G}cargar_ultimo_dump${N}"
 	@echo "	${G}build_requirements: actualiza el archivo requirements.txt${N}"
 	@echo "	${G}collectstatic${N}"
 	@echo ""
@@ -40,6 +43,11 @@ build_requirements:
 reset:
 	dropdb --if-exists timesheet -e; createdb timesheet
 	pipenv run python manage.py migrate --noinput
+
+cargar_ultimo_dump:
+	@echo "Se cargará el dump mas reciente: ${DB_DUMP_MAS_RECIENTE}"
+	dropdb --if-exists timesheet -e; createdb timesheet
+	pg_restore --no-acl --no-owner -d timesheet ${DB_DUMP_MAS_RECIENTE}
 
 collectstatic:
 	pipenv run python manage.py collectstatic

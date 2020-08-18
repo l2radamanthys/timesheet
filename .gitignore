@@ -2,6 +2,7 @@
 *.pyo
 *.sqlite
 *.sqlite3
+*.dump
 
 /notebook
 /__pycache__
