@@ -59,6 +59,9 @@ realizar_backup:
 collectstatic:
 	pipenv run python manage.py collectstatic
 
+empty_commit:
+	@git commit --allow-empty -m "Trigger Build"
+
 heroku_deploy:
 	@git push heroku master
 
