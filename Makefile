@@ -54,7 +54,7 @@ cargar_ultimo_dump:
 
 realizar_backup:
 	@echo "Creando el archivo ${DB_NOMBRE_DEL_DUMP}"
-	@pg_dump -F c tca > ${DB_NOMBRE_DEL_DUMP}
+	@pg_dump -F c timesheet > ${DB_NOMBRE_DEL_DUMP}
 
 collectstatic:
 	pipenv run python manage.py collectstatic
