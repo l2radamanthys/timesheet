@@ -10,5 +10,6 @@ class TareaProyectoSerializer(serializers.ModelSerializer):
             'proyecto',
             'tarea',
             'fecha',
-            'horas',
+            'horas_facturables',
+            'horas_no_facturables',
         )

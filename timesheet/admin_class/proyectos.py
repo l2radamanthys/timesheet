@@ -5,6 +5,7 @@ from timesheet.models.proyectos import Proyecto
 class ProyectoAdmin(admin.ModelAdmin):
     model = Proyecto
     list_display = (
+        'codigo',
         'nombre',
         'cliente',
     )

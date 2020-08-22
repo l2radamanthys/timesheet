@@ -9,7 +9,8 @@ class TareaProyectoAdmin(admin.ModelAdmin):
         'proyecto',
         'tarea',
         'fecha',
-        'horas',
+        'horas_facturables',
+        'horas_no_facturables',
     )
     autocomplete_fields = (
         'proyecto',
