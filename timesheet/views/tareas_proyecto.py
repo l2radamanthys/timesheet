@@ -42,6 +42,8 @@ class TareaProyectoViewSet(viewsets.ModelViewSet):
         borradas = 0
 
         for tarea in tareas:
+            print("::", tarea)
+
             try:
                 tarea_proy = TareaProyecto.objects.get(
                     user__id=tarea.get('user_id', None),
@@ -49,13 +51,13 @@ class TareaProyectoViewSet(viewsets.ModelViewSet):
                     tarea__id=tarea.get('tarea_id', None),
                     fecha=tarea.get('fecha', None)
                 )
-                if tarea.get('horas', 0) != 0:
-                    tarea_proy.horas = tarea.get('horas', None)
-                    tarea_proy.save()
-                    actualizadas += 1
-                else:
-                    tarea_proy.delete()
-                    borradas += 1
+                # if tarea.get('horas', 0) != 0:
+                    # tarea_proy.horas = tarea.get('horas', None)
+                    # tarea_proy.save()
+                    #actualizadas += 1
+                # else:
+                    #tarea_proy.delete()
+                    #borradas += 1
 
             except TareaProyecto.DoesNotExist:
                 if tarea.get('horas', 0) != 0:
@@ -68,7 +70,7 @@ class TareaProyectoViewSet(viewsets.ModelViewSet):
                         tarea=tarea_,
                         proyecto=proyecto,
                         fecha=tarea.get('fecha', None),
-                        horas=tarea.get('horas', None)
+                        horas_facturables=horas.get('horas', None)
                     )
                     agregadas += 1
 
